@@ -1,0 +1,9 @@
+[
+  {
+    "nombre": "admin",
+    "apellido": "admin",
+    "usuario": "admin",
+    "contrasena": "admin",
+    "tipo": "EMPLEADO"
+  }
+]
