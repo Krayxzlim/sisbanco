@@ -4,7 +4,7 @@
     "cuentas": [
       {
         "numeroCuenta": "1000",
-        "saldo": 2.219422152875E12,
+        "saldo": 200000.0,
         "habilitada": true,
         "historial": [
           {
@@ -12,181 +12,21 @@
             "monto": 0.0,
             "usuario": "asd",
             "cajeroId": 1,
-            "fecha": "2025-06-17 12:29"
+            "fecha": "2025-06-17 15:00"
           },
           {
             "tipo": "DEPOSITO",
-            "monto": 222222.0,
+            "monto": 200000.0,
             "usuario": "asd",
             "cajeroId": 1,
-            "fecha": "2025-06-17 12:29"
-          },
-          {
-            "tipo": "DEPOSITO",
-            "monto": 2.222222222222E12,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 13:17"
-          },
-          {
-            "tipo": "CONEXION",
-            "monto": 0.0,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 13:17"
-          },
-          {
-            "tipo": "CONEXION",
-            "monto": 0.0,
-            "usuario": "asd",
-            "cajeroId": 2,
-            "fecha": "2025-06-17 13:17"
-          },
-          {
-            "tipo": "TRANSFERENCIA",
-            "monto": 3.33111127E8,
-            "usuario": "asd",
-            "cajeroId": 2,
-            "fecha": "2025-06-17 13:21"
-          },
-          {
-            "tipo": "CONEXION",
-            "monto": 0.0,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 13:31"
-          },
-          {
-            "tipo": "RETIRO",
-            "monto": 22222.0,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 13:31"
-          },
-          {
-            "tipo": "RETIRO",
-            "monto": 22222.0,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 13:31"
-          },
-          {
-            "tipo": "RETIRO",
-            "monto": 2222.0,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 13:31"
-          },
-          {
-            "tipo": "RETIRO",
-            "monto": 222.0,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 13:31"
-          },
-          {
-            "tipo": "RETIRO",
-            "monto": 222.0,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 13:31"
-          },
-          {
-            "tipo": "RETIRO",
-            "monto": 22222.0,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 13:31"
-          },
-          {
-            "tipo": "RETIRO",
-            "monto": 222222.0,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 13:31"
-          },
-          {
-            "tipo": "RETIRO",
-            "monto": 2.2222222E7,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 13:31"
-          },
-          {
-            "tipo": "CONEXION",
-            "monto": 0.0,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 13:31"
-          },
-          {
-            "tipo": "RETIRO",
-            "monto": 2.22222222E8,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 13:31"
-          },
-          {
-            "tipo": "RETIRO",
-            "monto": 2.222222222E9,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 13:31"
+            "fecha": "2025-06-17 15:00"
           }
         ]
-      },
-      {
-        "numeroCuenta": "1002",
-        "saldo": 3.33133349E8,
-        "habilitada": true,
-        "historial": [
-          {
-            "tipo": "ACTIVACION",
-            "monto": 0.0,
-            "usuario": "admin",
-            "cajeroId": -1,
-            "fecha": "2025-06-17 12:48"
-          },
-          {
-            "tipo": "DEPOSITO",
-            "monto": 3.33111127E8,
-            "usuario": "asd",
-            "cajeroId": -1,
-            "fecha": "2025-06-17 13:21"
-          }
-        ]
-      },
-      {
-        "numeroCuenta": "1004",
-        "saldo": 0.0,
-        "habilitada": false,
-        "historial": []
       }
     ],
-    "cuentaActiva": {
-      "numeroCuenta": "1000",
-      "saldo": 0.0,
-      "habilitada": true,
-      "historial": [
-        {
-          "tipo": "CONEXION",
-          "monto": 0.0,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 12:29"
-        },
-        {
-          "tipo": "DEPOSITO",
-          "monto": 222222.0,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 12:29"
-        }
-      ]
-    },
     "cuentaActual": {
       "numeroCuenta": "1000",
-      "saldo": 2.219422152875E12,
+      "saldo": 200000.0,
       "habilitada": true,
       "historial": [
         {
@@ -194,126 +34,14 @@
           "monto": 0.0,
           "usuario": "asd",
           "cajeroId": 1,
-          "fecha": "2025-06-17 12:29"
+          "fecha": "2025-06-17 15:00"
         },
         {
           "tipo": "DEPOSITO",
-          "monto": 222222.0,
+          "monto": 200000.0,
           "usuario": "asd",
           "cajeroId": 1,
-          "fecha": "2025-06-17 12:29"
-        },
-        {
-          "tipo": "DEPOSITO",
-          "monto": 2.222222222222E12,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 13:17"
-        },
-        {
-          "tipo": "CONEXION",
-          "monto": 0.0,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 13:17"
-        },
-        {
-          "tipo": "CONEXION",
-          "monto": 0.0,
-          "usuario": "asd",
-          "cajeroId": 2,
-          "fecha": "2025-06-17 13:17"
-        },
-        {
-          "tipo": "TRANSFERENCIA",
-          "monto": 3.33111127E8,
-          "usuario": "asd",
-          "cajeroId": 2,
-          "fecha": "2025-06-17 13:21"
-        },
-        {
-          "tipo": "CONEXION",
-          "monto": 0.0,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 13:31"
-        },
-        {
-          "tipo": "RETIRO",
-          "monto": 22222.0,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 13:31"
-        },
-        {
-          "tipo": "RETIRO",
-          "monto": 22222.0,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 13:31"
-        },
-        {
-          "tipo": "RETIRO",
-          "monto": 2222.0,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 13:31"
-        },
-        {
-          "tipo": "RETIRO",
-          "monto": 222.0,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 13:31"
-        },
-        {
-          "tipo": "RETIRO",
-          "monto": 222.0,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 13:31"
-        },
-        {
-          "tipo": "RETIRO",
-          "monto": 22222.0,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 13:31"
-        },
-        {
-          "tipo": "RETIRO",
-          "monto": 222222.0,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 13:31"
-        },
-        {
-          "tipo": "RETIRO",
-          "monto": 2.2222222E7,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 13:31"
-        },
-        {
-          "tipo": "CONEXION",
-          "monto": 0.0,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 13:31"
-        },
-        {
-          "tipo": "RETIRO",
-          "monto": 2.22222222E8,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 13:31"
-        },
-        {
-          "tipo": "RETIRO",
-          "monto": 2.222222222E9,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 13:31"
+          "fecha": "2025-06-17 15:00"
         }
       ]
     },

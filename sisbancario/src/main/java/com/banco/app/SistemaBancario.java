@@ -24,6 +24,7 @@ public class SistemaBancario {
     public static void main(String[] args) {
         Banco banco = new Banco();
         banco.inicializar();
+        //bucle inicial
         while (true) {
             String[] opciones = {"Iniciar sesión", "Registrarse", "Salir"};
             int opcion = JOptionPane.showOptionDialog(null, "Bienvenido al Banco",
@@ -51,7 +52,7 @@ public class SistemaBancario {
             }
         }
     }
-
+//flujo cliente empleado
     private static void login(Banco banco) {
         String usuario = pedirTexto("Usuario:");
         String contrasena = pedirTexto("Contraseña:");
@@ -85,10 +86,11 @@ public class SistemaBancario {
             menuCliente(banco, cliente);
             return;
         }
-
+//inicio empleado
         var empleadoOpt = banco.autenticarEmpleado(usuario, contrasena);
         if (empleadoOpt.isPresent()) {
             menuEmpleado(banco, empleadoOpt.get());
+            //cambio de contrasena con pin, solo clientes (empleado no tiene pin)
         } else {
             if (JOptionPane.showConfirmDialog(null, "¿Olvidaste tu contraseña?", "Recuperar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 String u = pedirTexto("Ingrese usuario:");
@@ -102,7 +104,7 @@ public class SistemaBancario {
             }
         }
     }
-
+//menu de cuenta
     private static void seleccionarCuenta(Cliente cliente, Banco banco) {
         List<CuentaBancaria> cuentas = cliente.getCuentas();
         JPanel panel = new JPanel(new BorderLayout());
@@ -169,7 +171,7 @@ public class SistemaBancario {
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
     }
-
+//registrar con boton de empleado
     private static void registrar(Banco banco) {
         JCheckBox checkEmpleado = new JCheckBox("Registrar como empleado");
         int res = JOptionPane.showConfirmDialog(null, checkEmpleado, "Tipo de usuario", JOptionPane.OK_CANCEL_OPTION);
@@ -200,7 +202,7 @@ public class SistemaBancario {
         }
     }
 
-
+//menu una vez que se selecciona cuenta
     private static void menuCliente(Banco banco, Cliente cliente) {
         while (true) {
             String[] opciones = {"Depositar", "Retirar", "Transferir", "Ver saldo", "Ver historial", "Salir"};
@@ -236,7 +238,7 @@ public class SistemaBancario {
             }
         }
     }
-
+//menu si se ingresa con usuario empleado
     private static void menuEmpleado(Banco banco, Empleado emp) {
         while (true) {
             String[] opciones = {"Ver cajeros", "Modificar cajero", "Ver pedidos de habilitación", "Salir"};
@@ -251,7 +253,7 @@ public class SistemaBancario {
                         JOptionPane.showMessageDialog(null, "No hay cajeros disponibles para modificar.");
                         break;
                     }
-                    
+                    //stream para rangos de ID
                     int minId = banco.getCajeros().stream()
                                     .mapToInt(c -> c.getId())
                                     .min().orElse(1);
@@ -283,6 +285,7 @@ public class SistemaBancario {
                     }
                     banco.modificarCajero(id, accion, monto);
                 }
+                //cuentas para habilitar si un usuario las pide
                 case 2 -> {
                     List<CuentaBancaria> pendientes = banco.obtenerCuentasPendientes();
                     if (pendientes.isEmpty()) {
@@ -332,7 +335,7 @@ public class SistemaBancario {
             }
         }
     }
-
+//metodos de entradas 
     private static String pedirTexto(String mensaje) {
         while (true) {
             String input = JOptionPane.showInputDialog(null, mensaje);
@@ -344,12 +347,6 @@ public class SistemaBancario {
                 continue;
             }
             return input.trim();
-        }
-    }
-
-    public static class OperacionCanceladaException extends RuntimeException {
-        public OperacionCanceladaException() {
-            super("Operación cancelada por el usuario");
         }
     }
 
@@ -377,6 +374,12 @@ public class SistemaBancario {
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Ingrese un monto numérico válido y mayor que cero.");
             }
+        }
+    }
+
+    public static class OperacionCanceladaException extends RuntimeException {
+    public OperacionCanceladaException() {
+        super("Operación cancelada por el usuario");
         }
     }
 }

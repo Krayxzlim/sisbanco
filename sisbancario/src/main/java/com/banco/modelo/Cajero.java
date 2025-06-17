@@ -1,6 +1,7 @@
 package com.banco.modelo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cajero {
@@ -31,5 +32,7 @@ public class Cajero {
     }
 
     public void registrarTransaccion(Transaccion t) { transacciones.add(t); }
-    public List<Transaccion> getTransacciones() { return transacciones; }
+    public List<Transaccion> getTransacciones() {
+        return Collections.unmodifiableList(transacciones);
+    }  
 }

@@ -14,6 +14,7 @@ import com.banco.modelo.Transaccion;
 import com.google.gson.reflect.TypeToken;
 
 public class Banco {
+    //atributos y json para listas de entidades
     private List<Cliente> clientes;
     private List<Empleado> empleados;
     private List<Cajero> cajeros;
@@ -30,6 +31,7 @@ public class Banco {
     }
 
     public void inicializar() {
+        //carga y o crea json
         Type tipoClientes = new TypeToken<List<Cliente>>() {}.getType();
         clientes = GestorArchivos.cargarLista(ARCH_CLIENTES, tipoClientes);
 
@@ -46,7 +48,7 @@ public class Banco {
             cajeros = cajerosGuardados;
         }
     }
-
+//autenticaciones
     public Optional<Cliente> autenticarCliente(String usuario, String contrasena) {
         return clientes.stream()
                 .filter(c -> c.getUsuario().equals(usuario) && c.getContrasena().equals(contrasena))
@@ -58,7 +60,7 @@ public class Banco {
                 .filter(e -> e.getUsuario().equals(usuario) && e.getContrasena().equals(contrasena))
                 .findFirst();
     }
-
+//modificar pass, podria agregar alguna validacion externa o con el usuario empleado quizas
     public boolean recuperarContrasena(String usuario, String pin, String nuevaContrasena) {
         for (Cliente c : clientes) {
             if (c.getUsuario().equals(usuario) && c.getPin().equals(pin)) {
@@ -68,7 +70,7 @@ public class Banco {
         }
         return false;
     }
-
+//registros
     public void registrarCliente(String nombre, String apellido, String usuario, String contrasena, String pin) {
         boolean existe = clientes.stream().anyMatch(c -> c.getUsuario().equalsIgnoreCase(usuario));
         if (existe) {
@@ -87,7 +89,7 @@ public class Banco {
     }
 
 
-
+//guardar datos
     public void guardarTodo() {
         GestorArchivos.guardarLista(ARCH_CLIENTES, clientes);
         GestorArchivos.guardarLista(ARCH_EMPLEADOS, empleados);
@@ -108,7 +110,7 @@ public class Banco {
         cliente.getCuentaActual().getHistorial().add(new Transaccion(TipoOperacion.CONEXION, 0, cliente.getUsuario(), cajeroId));
         return true;
     }
-
+//operaciones cliente
     public boolean depositar(Cliente cliente, int cajeroId, double monto) {
         Cajero cajero = obtenerCajero(cajeroId);
         cliente.getCuentaActual().depositar(monto, cliente.getUsuario(), cajeroId);
@@ -191,7 +193,7 @@ public class Banco {
         }
         guardarTodo();
     }
-
+//cuenta cliente
     public void seleccionarCuenta(Cliente cliente, CuentaBancaria cuentaSeleccionada) {
     cliente.setCuentaActual(cuentaSeleccionada);
     }
@@ -206,7 +208,7 @@ public class Banco {
         guardarTodo();
         return nueva;
     }
-
+//visualizacion de cuentas para clientes
     public String verCuentasClientes() {
         StringBuilder sb = new StringBuilder();
         for (Cliente c : clientes) {
@@ -220,7 +222,7 @@ public class Banco {
         }
         return sb.toString();
     }
-
+//mostrar de que usuario es la cuenta
     public Cliente buscarClientePorCuenta(CuentaBancaria cuentaBuscada) {
         for (Cliente cliente : clientes) {
             for (CuentaBancaria cuenta : cliente.getCuentas()) {
@@ -231,7 +233,7 @@ public class Banco {
         }
         return null;
     }
-    
+    //empleado, activacion cuenta
     public boolean cambiarEstadoCuenta(Empleado empleado, Cliente cliente, String numeroCuenta, boolean habilitar) {
         for (CuentaBancaria cuenta : cliente.getCuentas()) {
             if (cuenta.getNumeroCuenta().equals(numeroCuenta)) {             
