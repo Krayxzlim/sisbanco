@@ -376,7 +376,7 @@ public class SistemaBancario {
             }
         }
     }
-
+//intento de manejo de excepcion
     public static class OperacionCanceladaException extends RuntimeException {
     public OperacionCanceladaException() {
         super("Operación cancelada por el usuario");
