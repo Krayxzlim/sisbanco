@@ -9,8 +9,7 @@ public class CuentaInversion {
 
     public CuentaInversion() {
         this.saldo = 0;
-        this.historial = new ArrayList<>();
-        historial.add("Día 0 - Saldo inicial: $0.0");
+        this.historial = new ArrayList<>();        
     }
 
     public void depositar(double monto) {
@@ -28,9 +27,12 @@ public class CuentaInversion {
     }
 
     public void actualizarPorInteresDiario() {
+        if (saldo == 0) return;
+
         double tasa = (Math.random() * 0.1) - 0.05;
         double rendimiento = saldo * tasa;
         saldo += rendimiento;
+
         String reporte = String.format("Interés diario: %.2f%% | Saldo: $%.2f", tasa * 100, saldo);
         historial.add(reporte);
     }

@@ -4,7 +4,7 @@
     "cuentas": [
       {
         "numeroCuenta": "1000",
-        "saldo": 200000.0,
+        "saldo": 2000.0,
         "habilitada": true,
         "historial": [
           {
@@ -12,28 +12,42 @@
             "monto": 0.0,
             "usuario": "asd",
             "cajeroId": 1,
-            "fecha": "2025-06-17 15:00"
-          },
-          {
-            "tipo": "DEPOSITO",
-            "monto": 200000.0,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-17 15:00"
+            "fecha": "2025-06-26 22:18"
           },
           {
             "tipo": "CONEXION",
             "monto": 0.0,
             "usuario": "asd",
             "cajeroId": 1,
-            "fecha": "2025-06-19 21:51"
+            "fecha": "2025-06-26 22:20"
+          },
+          {
+            "tipo": "DEPOSITO",
+            "monto": 4000.0,
+            "usuario": "asd",
+            "cajeroId": 1,
+            "fecha": "2025-06-26 22:53"
+          },
+          {
+            "tipo": "CONEXION",
+            "monto": 0.0,
+            "usuario": "asd",
+            "cajeroId": 1,
+            "fecha": "2025-06-26 22:53"
+          },
+          {
+            "tipo": "RETIRO",
+            "monto": 2000.0,
+            "usuario": "asd",
+            "cajeroId": -1,
+            "fecha": "2025-06-26 22:53"
           }
         ]
       }
     ],
     "cuentaActual": {
       "numeroCuenta": "1000",
-      "saldo": 200000.0,
+      "saldo": 2000.0,
       "habilitada": true,
       "historial": [
         {
@@ -41,22 +55,71 @@
           "monto": 0.0,
           "usuario": "asd",
           "cajeroId": 1,
-          "fecha": "2025-06-17 15:00"
-        },
-        {
-          "tipo": "DEPOSITO",
-          "monto": 200000.0,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-17 15:00"
+          "fecha": "2025-06-26 22:18"
         },
         {
           "tipo": "CONEXION",
           "monto": 0.0,
           "usuario": "asd",
           "cajeroId": 1,
-          "fecha": "2025-06-19 21:51"
+          "fecha": "2025-06-26 22:20"
+        },
+        {
+          "tipo": "DEPOSITO",
+          "monto": 4000.0,
+          "usuario": "asd",
+          "cajeroId": 1,
+          "fecha": "2025-06-26 22:53"
+        },
+        {
+          "tipo": "CONEXION",
+          "monto": 0.0,
+          "usuario": "asd",
+          "cajeroId": 1,
+          "fecha": "2025-06-26 22:53"
+        },
+        {
+          "tipo": "RETIRO",
+          "monto": 2000.0,
+          "usuario": "asd",
+          "cajeroId": -1,
+          "fecha": "2025-06-26 22:53"
+        },
+        {
+          "tipo": "CONEXION",
+          "monto": 0.0,
+          "usuario": "asd",
+          "cajeroId": 1,
+          "fecha": "2025-06-26 23:04"
+        },
+        {
+          "tipo": "CONEXION",
+          "monto": 0.0,
+          "usuario": "asd",
+          "cajeroId": 1,
+          "fecha": "2025-06-26 23:05"
         }
+      ]
+    },
+    "cuentaInversion": {
+      "saldo": 1962.212193679603,
+      "historial": [
+        "Día 0 - Saldo inicial: $0.0",
+        "Interés diario: 1,34% | Saldo: $0,00",
+        "Interés diario: 2,95% | Saldo: $0,00",
+        "Interés diario: -0,57% | Saldo: $0,00",
+        "Interés diario: -4,73% | Saldo: $0,00",
+        "Interés diario: 4,02% | Saldo: $0,00",
+        "Interés diario: -4,68% | Saldo: $0,00",
+        "Interés diario: -0,88% | Saldo: $0,00",
+        "Interés diario: 4,30% | Saldo: $0,00",
+        "Interés diario: 1,39% | Saldo: $0,00",
+        "Depósito: +$2000.0 | Nuevo saldo: $2000.0",
+        "Interés diario: 2,00% | Saldo: $2039,97",
+        "Interés diario: -1,38% | Saldo: $2011,77",
+        "Interés diario: 2,08% | Saldo: $2053,71",
+        "Interés diario: -1,49% | Saldo: $2023,11",
+        "Interés diario: -3,01% | Saldo: $1962,21"
       ]
     },
     "nombre": "asd",

@@ -84,7 +84,6 @@ public class SistemaBancario {
 
             banco.registrarInicioSesion(cliente, id);
             seleccionarCuenta(cliente, banco);
-            menuCliente(banco, cliente);
             return;
         }
 //inicio empleado
@@ -112,16 +111,13 @@ public class SistemaBancario {
         JPanel cuentasPanel = new JPanel(new FlowLayout());
 
         ButtonGroup grupo = new ButtonGroup();
-        JRadioButton[] radios = new JRadioButton[cuentas.size()];
+        JRadioButton[] radios = new JRadioButton[cuentas.size() + 1]; // +1 para inversión
 
         for (int i = 0; i < cuentas.size(); i++) {
             CuentaBancaria c = cuentas.get(i);
-            String texto;
-            if (c.isHabilitada()) {
-                texto = "Cuenta: " + c.getNumeroCuenta() + " - Saldo: $" + c.getSaldo();
-            } else {
-                texto = "Cuenta: " + c.getNumeroCuenta() + " - Pendiente habilitación";
-            }
+            String texto = c.isHabilitada()
+                    ? "Cuenta: " + c.getNumeroCuenta() + " - Saldo: $" + c.getSaldo()
+                    : "Cuenta: " + c.getNumeroCuenta() + " - Pendiente habilitación";
 
             JRadioButton radio = new JRadioButton(texto);
             radios[i] = radio;
@@ -130,11 +126,17 @@ public class SistemaBancario {
 
             if (!c.isHabilitada()) {
                 radio.setEnabled(false);
-                radio.addActionListener(e ->
-                    JOptionPane.showMessageDialog(null, "La cuenta aún no está habilitada por el banco.")
-                );
+                radio.addActionListener(e -> JOptionPane.showMessageDialog(null, "La cuenta aún no está habilitada."));
             }
         }
+
+        JRadioButton inversionRadio = new JRadioButton("Cuenta de inversión");
+        radios[cuentas.size()] = inversionRadio;
+        grupo.add(inversionRadio);
+        cuentasPanel.add(inversionRadio);
+
+        // Valor de retorno simulado
+        final int[] cuentaSeleccionada = {-1}; // -1: nada, 0..n-1: bancaria, n: inversión
 
         JButton confirmarBtn = new JButton("Confirmar");
         JButton nuevaBtn = new JButton("Solicitar cuenta nueva");
@@ -142,7 +144,7 @@ public class SistemaBancario {
         confirmarBtn.addActionListener(e -> {
             for (int i = 0; i < radios.length; i++) {
                 if (radios[i].isSelected()) {
-                    cliente.setCuentaActual(cuentas.get(i));
+                    cuentaSeleccionada[0] = i;
                     Window w = SwingUtilities.getWindowAncestor(confirmarBtn);
                     if (w != null) w.dispose();
                     return;
@@ -153,7 +155,7 @@ public class SistemaBancario {
 
         nuevaBtn.addActionListener(e -> {
             banco.crearNuevaCuentaParaCliente(cliente);
-            JOptionPane.showMessageDialog(null, "Solicitud de nueva cuenta enviada.");
+            JOptionPane.showMessageDialog(null, "Solicitud enviada.");
         });
 
         JPanel botones = new JPanel();
@@ -171,6 +173,14 @@ public class SistemaBancario {
         dialog.pack();
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
+
+        // una vez cerrado el dialog, ejecutamos el menú adecuado
+        if (cuentaSeleccionada[0] == cuentas.size()) {
+            menuCuentaInversion(cliente, banco);
+        } else if (cuentaSeleccionada[0] >= 0) {
+            cliente.setCuentaActual(cuentas.get(cuentaSeleccionada[0]));
+            menuCliente(banco, cliente);
+        }
     }
 //registrar con boton de empleado
     private static void registrar(Banco banco) {
@@ -202,11 +212,10 @@ public class SistemaBancario {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
-
 //menu una vez que se selecciona cuenta
     private static void menuCliente(Banco banco, Cliente cliente) {
         while (true) {
-            String[] opciones = {"Depositar", "Retirar", "Transferir", "Ver saldo", "Ver historial", "Cuenta de inversión", "Salir"};
+            String[] opciones = {"Depositar", "Retirar", "Transferir", "Ver saldo", "Ver historial", "Salir"};
             int op = JOptionPane.showOptionDialog(null, "Menu Cliente", "Opciones",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
 
@@ -235,34 +244,42 @@ public class SistemaBancario {
                     banco.verHistorial(cliente).forEach(t -> sb.append(t).append("\n"));
                     JOptionPane.showMessageDialog(null, sb);
                 }
-                case 5 -> {
-                    String[] invOpciones = {"Ver saldo inversión", "Ver historial", "Invertir dinero", "Volver"};
-                    int opInv = JOptionPane.showOptionDialog(null, "Cuenta de inversión", "Opciones",
-                            JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, invOpciones, invOpciones[0]);
-
-                    switch (opInv) {
-                        case 0 -> JOptionPane.showMessageDialog(null,
-                                "Saldo inversión: $" + cliente.getCuentaInversion().getSaldo());
-                        case 1 -> {
-                            StringBuilder sb = new StringBuilder("Historial de inversión:\n");
-                            cliente.getCuentaInversion().getHistorial().forEach(linea -> sb.append(linea).append("\n"));
-                            JOptionPane.showMessageDialog(null, sb.toString());
-                        }
-                        case 2 -> {
-                            double monto = pedirDouble("Monto a invertir:");
-                            try {
-                                banco.invertir(cliente, monto);
-                                JOptionPane.showMessageDialog(null, "Inversión realizada.");
-                            } catch (Exception e) {
-                                JOptionPane.showMessageDialog(null, e.getMessage());
-                            }
-                        }
-                    }
-                }    
-                case 6 -> { return; }
+                case 5 -> { return; }
             }
         }
     }
+//menu inversion
+private static void menuCuentaInversion(Cliente cliente, Banco banco) {
+    String[] invOpciones = {"Ver saldo inversión", "Ver historial", "Invertir dinero", "Volver"};
+    int opInv;
+    do {
+        opInv = JOptionPane.showOptionDialog(null, "Cuenta de inversión", "Opciones",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, invOpciones, invOpciones[0]);
+
+        switch (opInv) {
+            case 0 -> JOptionPane.showMessageDialog(null,
+                    "Saldo inversión: $" + cliente.getCuentaInversion().getSaldo());
+            case 1 -> {
+                if (cliente.getCuentaInversion().getHistorial().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No hay movimientos aún en la cuenta de inversión.");
+                } else {
+                    StringBuilder sb = new StringBuilder("Historial de inversión:\n");
+                    cliente.getCuentaInversion().getHistorial().forEach(linea -> sb.append(linea).append("\n"));
+                    JOptionPane.showMessageDialog(null, sb.toString());
+                }
+            }    
+            case 2 -> {
+                double monto = pedirDouble("Monto a invertir:");
+                try {
+                    banco.invertir(cliente, monto);
+                    JOptionPane.showMessageDialog(null, "Inversión realizada.");
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            }
+        }
+    } while (opInv != 3 && opInv != JOptionPane.CLOSED_OPTION);
+}
 //menu si se ingresa con usuario empleado
     private static void menuEmpleado(Banco banco, Empleado emp) {
         while (true) {
