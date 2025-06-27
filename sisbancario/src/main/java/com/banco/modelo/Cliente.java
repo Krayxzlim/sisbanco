@@ -7,6 +7,7 @@ public class Cliente extends Usuario {
     private String pin;
     private List<CuentaBancaria> cuentas;
     private CuentaBancaria cuentaActual;
+    private CuentaInversion cuentaInversion;
 
     public Cliente(String nombre, String apellido, String usuario, String contrasena, String pin) {
         super(nombre, apellido, usuario, contrasena, TipoUsuario.CLIENTE);
@@ -15,6 +16,7 @@ public class Cliente extends Usuario {
         CuentaBancaria cuentaInicial = new CuentaBancaria();
         this.cuentas.add(cuentaInicial);
         this.cuentaActual = cuentaInicial;
+        this.cuentaInversion = new CuentaInversion();
     }
 
     public String getPin() { return pin; }
@@ -26,6 +28,10 @@ public class Cliente extends Usuario {
 
     public CuentaBancaria getCuentaActual() {
         return cuentaActual;
+    }
+
+    public CuentaInversion getCuentaInversion() {
+    return cuentaInversion;
     }
 
     public void setCuentaActual(CuentaBancaria cuenta) {

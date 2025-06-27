@@ -24,6 +24,7 @@ public class SistemaBancario {
     public static void main(String[] args) {
         Banco banco = new Banco();
         banco.inicializar();
+        banco.simularInteresDiario();
         //bucle inicial
         while (true) {
             String[] opciones = {"Iniciar sesión", "Registrarse", "Salir"};
@@ -205,7 +206,7 @@ public class SistemaBancario {
 //menu una vez que se selecciona cuenta
     private static void menuCliente(Banco banco, Cliente cliente) {
         while (true) {
-            String[] opciones = {"Depositar", "Retirar", "Transferir", "Ver saldo", "Ver historial", "Salir"};
+            String[] opciones = {"Depositar", "Retirar", "Transferir", "Ver saldo", "Ver historial", "Cuenta de inversión", "Salir"};
             int op = JOptionPane.showOptionDialog(null, "Menu Cliente", "Opciones",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
 
@@ -234,7 +235,30 @@ public class SistemaBancario {
                     banco.verHistorial(cliente).forEach(t -> sb.append(t).append("\n"));
                     JOptionPane.showMessageDialog(null, sb);
                 }
-                case 5 -> { return; }
+                case 5 -> {
+                    String[] invOpciones = {"Ver saldo inversión", "Ver historial", "Invertir dinero", "Volver"};
+                    int opInv = JOptionPane.showOptionDialog(null, "Cuenta de inversión", "Opciones",
+                            JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, invOpciones, invOpciones[0]);
+
+                    switch (opInv) {
+                        case 0 -> JOptionPane.showMessageDialog(null,
+                                "Saldo inversión: $" + cliente.getCuentaInversion().getSaldo());
+                        case 1 -> {
+                            StringBuilder sb = new StringBuilder("Historial de inversión:\n");
+                            cliente.getCuentaInversion().getHistorial().forEach(linea -> sb.append(linea).append("\n"));
+                            JOptionPane.showMessageDialog(null, sb.toString());
+                        }
+                        case 2 -> {
+                            double monto = pedirDouble("Monto a invertir:");
+                            try {
+                                banco.invertir(cliente, monto);
+                                JOptionPane.showMessageDialog(null, "Inversión realizada.");
+                            } catch (Exception e) {
+                                JOptionPane.showMessageDialog(null, e.getMessage());
+                            }
+                        }
+                }
+                case 6 -> { return; }
             }
         }
     }

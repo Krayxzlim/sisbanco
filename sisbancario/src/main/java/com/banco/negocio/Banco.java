@@ -256,4 +256,21 @@ public class Banco {
     }
     return pendientes;
     }
+    //sim dia
+    public void simularInteresDiario() {
+    for (Cliente cliente : clientes) {
+        cliente.getCuentaInversion().actualizarPorInteresDiario();
+    }
+    guardarTodo();
+    }
+    //deposito en cuenta inve
+    public void invertir(Cliente cliente, double monto) {
+    if (!cliente.getCuentaActual().retirar(monto, cliente.getUsuario(), -1)) {
+        throw new IllegalArgumentException("Fondos insuficientes en cuenta principal.");
+    }
+    cliente.getCuentaInversion().depositar(monto);
+    guardarTodo();
+    }
+
+
 }
