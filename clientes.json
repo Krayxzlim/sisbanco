@@ -4,7 +4,7 @@
     "cuentas": [
       {
         "numeroCuenta": "1000",
-        "saldo": 2000.0,
+        "saldo": 1000.0,
         "habilitada": true,
         "historial": [
           {
@@ -12,42 +12,42 @@
             "monto": 0.0,
             "usuario": "asd",
             "cajeroId": 1,
-            "fecha": "2025-06-26 22:18"
-          },
-          {
-            "tipo": "CONEXION",
-            "monto": 0.0,
-            "usuario": "asd",
-            "cajeroId": 1,
-            "fecha": "2025-06-26 22:20"
+            "fecha": "2025-06-26 23:11"
           },
           {
             "tipo": "DEPOSITO",
-            "monto": 4000.0,
+            "monto": 2000.0,
             "usuario": "asd",
             "cajeroId": 1,
-            "fecha": "2025-06-26 22:53"
+            "fecha": "2025-06-26 23:11"
           },
           {
             "tipo": "CONEXION",
             "monto": 0.0,
             "usuario": "asd",
             "cajeroId": 1,
-            "fecha": "2025-06-26 22:53"
+            "fecha": "2025-06-26 23:11"
           },
           {
             "tipo": "RETIRO",
-            "monto": 2000.0,
+            "monto": 1000.0,
             "usuario": "asd",
             "cajeroId": -1,
-            "fecha": "2025-06-26 22:53"
+            "fecha": "2025-06-26 23:11"
+          },
+          {
+            "tipo": "CONEXION",
+            "monto": 0.0,
+            "usuario": "asd",
+            "cajeroId": 1,
+            "fecha": "2025-06-26 23:11"
           }
         ]
       }
     ],
     "cuentaActual": {
       "numeroCuenta": "1000",
-      "saldo": 2000.0,
+      "saldo": 0.0,
       "habilitada": true,
       "historial": [
         {
@@ -55,77 +55,151 @@
           "monto": 0.0,
           "usuario": "asd",
           "cajeroId": 1,
-          "fecha": "2025-06-26 22:18"
-        },
-        {
-          "tipo": "CONEXION",
-          "monto": 0.0,
-          "usuario": "asd",
-          "cajeroId": 1,
-          "fecha": "2025-06-26 22:20"
+          "fecha": "2025-06-26 23:11"
         },
         {
           "tipo": "DEPOSITO",
-          "monto": 4000.0,
+          "monto": 2000.0,
           "usuario": "asd",
           "cajeroId": 1,
-          "fecha": "2025-06-26 22:53"
+          "fecha": "2025-06-26 23:11"
         },
         {
           "tipo": "CONEXION",
           "monto": 0.0,
           "usuario": "asd",
           "cajeroId": 1,
-          "fecha": "2025-06-26 22:53"
+          "fecha": "2025-06-26 23:11"
         },
         {
           "tipo": "RETIRO",
-          "monto": 2000.0,
+          "monto": 1000.0,
           "usuario": "asd",
           "cajeroId": -1,
-          "fecha": "2025-06-26 22:53"
+          "fecha": "2025-06-26 23:11"
         },
         {
           "tipo": "CONEXION",
           "monto": 0.0,
           "usuario": "asd",
           "cajeroId": 1,
-          "fecha": "2025-06-26 23:04"
+          "fecha": "2025-06-26 23:11"
         },
         {
           "tipo": "CONEXION",
           "monto": 0.0,
           "usuario": "asd",
           "cajeroId": 1,
-          "fecha": "2025-06-26 23:05"
+          "fecha": "2025-06-26 23:12"
+        },
+        {
+          "tipo": "CONEXION",
+          "monto": 0.0,
+          "usuario": "asd",
+          "cajeroId": 1,
+          "fecha": "2025-06-26 23:16"
+        },
+        {
+          "tipo": "CONEXION",
+          "monto": 0.0,
+          "usuario": "asd",
+          "cajeroId": 1,
+          "fecha": "2025-06-26 23:16"
+        },
+        {
+          "tipo": "RETIRO",
+          "monto": 1000.0,
+          "usuario": "asd",
+          "cajeroId": -1,
+          "fecha": "2025-06-26 23:17"
+        },
+        {
+          "tipo": "CONEXION",
+          "monto": 0.0,
+          "usuario": "asd",
+          "cajeroId": 1,
+          "fecha": "2025-06-26 23:17"
+        },
+        {
+          "tipo": "CONEXION",
+          "monto": 0.0,
+          "usuario": "asd",
+          "cajeroId": 1,
+          "fecha": "2025-06-26 23:17"
         }
       ]
     },
     "cuentaInversion": {
-      "saldo": 1962.212193679603,
+      "saldo": 1945.2726925173763,
       "historial": [
-        "Día 0 - Saldo inicial: $0.0",
-        "Interés diario: 1,34% | Saldo: $0,00",
-        "Interés diario: 2,95% | Saldo: $0,00",
-        "Interés diario: -0,57% | Saldo: $0,00",
-        "Interés diario: -4,73% | Saldo: $0,00",
-        "Interés diario: 4,02% | Saldo: $0,00",
-        "Interés diario: -4,68% | Saldo: $0,00",
-        "Interés diario: -0,88% | Saldo: $0,00",
-        "Interés diario: 4,30% | Saldo: $0,00",
-        "Interés diario: 1,39% | Saldo: $0,00",
-        "Depósito: +$2000.0 | Nuevo saldo: $2000.0",
-        "Interés diario: 2,00% | Saldo: $2039,97",
-        "Interés diario: -1,38% | Saldo: $2011,77",
-        "Interés diario: 2,08% | Saldo: $2053,71",
-        "Interés diario: -1,49% | Saldo: $2023,11",
-        "Interés diario: -3,01% | Saldo: $1962,21"
+        "Depósito: +$1000.0 | Nuevo saldo: $1000.0",
+        "Interés diario: -2,71% | Saldo: $972,90",
+        "Interés diario: 1,90% | Saldo: $991,38",
+        "Interés diario: 1,81% | Saldo: $1009,38",
+        "Depósito: +$1000.0 | Nuevo saldo: $2009.3759768990226",
+        "Interés diario: -3,19% | Saldo: $1945,27"
       ]
     },
     "nombre": "asd",
     "apellido": "asd",
     "usuario": "asd",
     "contrasena": "asd",
+    "tipo": "CLIENTE"
+  },
+  {
+    "pin": "1234",
+    "cuentas": [
+      {
+        "numeroCuenta": "1002",
+        "saldo": 4000.0,
+        "habilitada": true,
+        "historial": [
+          {
+            "tipo": "CONEXION",
+            "monto": 0.0,
+            "usuario": "qwe",
+            "cajeroId": 1,
+            "fecha": "2025-06-26 23:12"
+          },
+          {
+            "tipo": "DEPOSITO",
+            "monto": 4000.0,
+            "usuario": "qwe",
+            "cajeroId": 1,
+            "fecha": "2025-06-26 23:13"
+          }
+        ]
+      }
+    ],
+    "cuentaActual": {
+      "numeroCuenta": "1002",
+      "saldo": 4000.0,
+      "habilitada": true,
+      "historial": [
+        {
+          "tipo": "CONEXION",
+          "monto": 0.0,
+          "usuario": "qwe",
+          "cajeroId": 1,
+          "fecha": "2025-06-26 23:12"
+        },
+        {
+          "tipo": "DEPOSITO",
+          "monto": 4000.0,
+          "usuario": "qwe",
+          "cajeroId": 1,
+          "fecha": "2025-06-26 23:13"
+        }
+      ]
+    },
+    "cuentaInversion": {
+      "saldo": 0.0,
+      "historial": []
+    },
+    "nombre": "qwe",
+    "apellido": "qwe",
+    "usuario": "qwe",
+    "contrasena": "qwe",
     "tipo": "CLIENTE"
   }
 ]

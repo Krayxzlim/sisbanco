@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "dineroDisponible": 204000.0,
+    "dineroDisponible": 210000.0,
     "habilitado": true,
     "transacciones": [
       {
@@ -17,6 +17,20 @@
         "usuario": "asd",
         "cajeroId": 1,
         "fecha": "2025-06-26 22:53"
+      },
+      {
+        "tipo": "DEPOSITO",
+        "monto": 2000.0,
+        "usuario": "asd",
+        "cajeroId": 1,
+        "fecha": "2025-06-26 23:11"
+      },
+      {
+        "tipo": "DEPOSITO",
+        "monto": 4000.0,
+        "usuario": "qwe",
+        "cajeroId": 1,
+        "fecha": "2025-06-26 23:13"
       }
     ]
   },

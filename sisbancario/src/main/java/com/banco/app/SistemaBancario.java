@@ -273,7 +273,7 @@ private static void menuCuentaInversion(Cliente cliente, Banco banco) {
                 try {
                     banco.invertir(cliente, monto);
                     JOptionPane.showMessageDialog(null, "Inversión realizada.");
-                } catch (Exception e) {
+                } catch (Exception e) { 
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }
             }
