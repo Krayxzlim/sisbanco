@@ -20,6 +20,13 @@
             "usuario": "asd",
             "cajeroId": 1,
             "fecha": "2025-06-17 15:00"
+          },
+          {
+            "tipo": "CONEXION",
+            "monto": 0.0,
+            "usuario": "asd",
+            "cajeroId": 1,
+            "fecha": "2025-06-19 21:51"
           }
         ]
       }
@@ -42,6 +49,13 @@
           "usuario": "asd",
           "cajeroId": 1,
           "fecha": "2025-06-17 15:00"
+        },
+        {
+          "tipo": "CONEXION",
+          "monto": 0.0,
+          "usuario": "asd",
+          "cajeroId": 1,
+          "fecha": "2025-06-19 21:51"
         }
       ]
     },

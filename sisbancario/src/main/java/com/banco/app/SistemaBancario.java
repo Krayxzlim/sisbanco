@@ -257,7 +257,8 @@ public class SistemaBancario {
                                 JOptionPane.showMessageDialog(null, e.getMessage());
                             }
                         }
-                }
+                    }
+                }    
                 case 6 -> { return; }
             }
         }
