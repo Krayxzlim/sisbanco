@@ -130,14 +130,15 @@
       ]
     },
     "cuentaInversion": {
-      "saldo": 1945.2726925173763,
+      "saldo": 1892.857035519006,
       "historial": [
         "Depósito: +$1000.0 | Nuevo saldo: $1000.0",
         "Interés diario: -2,71% | Saldo: $972,90",
         "Interés diario: 1,90% | Saldo: $991,38",
         "Interés diario: 1,81% | Saldo: $1009,38",
         "Depósito: +$1000.0 | Nuevo saldo: $2009.3759768990226",
-        "Interés diario: -3,19% | Saldo: $1945,27"
+        "Interés diario: -3,19% | Saldo: $1945,27",
+        "Interés diario: -2,69% | Saldo: $1892,86"
       ]
     },
     "nombre": "asd",
