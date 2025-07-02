@@ -249,37 +249,37 @@ public class SistemaBancario {
         }
     }
 //menu inversion
-private static void menuCuentaInversion(Cliente cliente, Banco banco) {
-    String[] invOpciones = {"Ver saldo inversión", "Ver historial", "Invertir dinero", "Volver"};
-    int opInv;
-    do {
-        opInv = JOptionPane.showOptionDialog(null, "Cuenta de inversión", "Opciones",
-                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, invOpciones, invOpciones[0]);
+    private static void menuCuentaInversion(Cliente cliente, Banco banco) {
+        String[] invOpciones = {"Ver saldo inversión", "Ver historial", "Invertir dinero", "Volver"};
+        int opInv;
+        do {
+            opInv = JOptionPane.showOptionDialog(null, "Cuenta de inversión", "Opciones",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, invOpciones, invOpciones[0]);
 
-        switch (opInv) {
-            case 0 -> JOptionPane.showMessageDialog(null,
-                    "Saldo inversión: $" + cliente.getCuentaInversion().getSaldo());
-            case 1 -> {
-                if (cliente.getCuentaInversion().getHistorial().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "No hay movimientos aún en la cuenta de inversión.");
-                } else {
-                    StringBuilder sb = new StringBuilder("Historial de inversión:\n");
-                    cliente.getCuentaInversion().getHistorial().forEach(linea -> sb.append(linea).append("\n"));
-                    JOptionPane.showMessageDialog(null, sb.toString());
-                }
-            }    
-            case 2 -> {
-                double monto = pedirDouble("Monto a invertir:");
-                try {
-                    banco.invertir(cliente, monto);
-                    JOptionPane.showMessageDialog(null, "Inversión realizada.");
-                } catch (Exception e) { 
-                    JOptionPane.showMessageDialog(null, e.getMessage());
+            switch (opInv) {
+                case 0 -> JOptionPane.showMessageDialog(null,
+                        "Saldo inversión: $" + cliente.getCuentaInversion().getSaldo());
+                case 1 -> {
+                    if (cliente.getCuentaInversion().getHistorial().isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "No hay movimientos aún en la cuenta de inversión.");
+                    } else {
+                        StringBuilder sb = new StringBuilder("Historial de inversión:\n");
+                        cliente.getCuentaInversion().getHistorial().forEach(linea -> sb.append(linea).append("\n"));
+                        JOptionPane.showMessageDialog(null, sb.toString());
+                    }
+                }    
+                case 2 -> {
+                    double monto = pedirDouble("Monto a invertir:");
+                    try {
+                        banco.invertir(cliente, monto);
+                        JOptionPane.showMessageDialog(null, "Inversión realizada.");
+                    } catch (Exception e) { 
+                        JOptionPane.showMessageDialog(null, e.getMessage());
+                    }
                 }
             }
-        }
-    } while (opInv != 3 && opInv != JOptionPane.CLOSED_OPTION);
-}
+        } while (opInv != 3 && opInv != JOptionPane.CLOSED_OPTION);
+    }
 //menu si se ingresa con usuario empleado
     private static void menuEmpleado(Banco banco, Empleado emp) {
         while (true) {
